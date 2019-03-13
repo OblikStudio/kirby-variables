@@ -27,7 +27,7 @@ return array (
 );
 ```
 
-Create a new file `languages/variables/en.yml' and put the variables there:
+Create a new file `languages/variables/en.yml` and put the variables there:
 ```yaml
 hello: Hello
 button:
