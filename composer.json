@@ -9,5 +9,7 @@
             "email": "h.dodov@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    }
 }
