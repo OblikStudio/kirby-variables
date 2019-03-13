@@ -70,3 +70,8 @@ Array
 ```
 
 and you can use the variables in your templates with `t('foo.baz.qux')`.
+
+# [Kirby Options](https://getkirby.com/docs/guide/plugins/plugin-basics#plugin-options)
+
+- `oblik.easyvars.loader` file path to the `loader.php` file in the plugin directory that imports the variables. You shouldn't change that.
+- `oblik.easyvars.folder` the folder in `languages` that should contain the YAML files. You could change that to whatever you wish, or set it to `null` if you want to put your YAML files where the language PHP files are. Default: `variables`.
