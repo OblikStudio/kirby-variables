@@ -1,15 +1,18 @@
 {
-    "name": "oblik/kirby-easyvars",
-    "description": "Easy language variable management for Kirby 3.",
-    "type": "kirby-plugin",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Hristiyan Dodov",
-            "email": "h.dodov@gmail.com"
-        }
-    ],
-    "require": {
-        "getkirby/composer-installer": "^1.1"
+  "name": "oblik/kirby-easyvars",
+  "description": "Easy language variable management for Kirby 3 in YAML files.",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hristiyan Dodov",
+      "email": "h.dodov@gmail.com"
     }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  },
+  "extra": {
+    "installer-name": "easyvars"
+  }
 }
