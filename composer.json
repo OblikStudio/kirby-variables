@@ -1,0 +1,13 @@
+{
+    "name": "oblik/kirby-easyvars",
+    "description": "Easy language variable management for Kirby 3.",
+    "type": "plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hristiyan Dodov",
+            "email": "h.dodov@gmail.com"
+        }
+    ],
+    "require": {}
+}
