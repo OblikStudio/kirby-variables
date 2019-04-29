@@ -45,9 +45,20 @@ class Handler {
 		return self::write($lang, $data);
 	}
 
-	public static function find ($key, $data) {
+	public static function replaceKey ($stringPath, $value, &$data) {
+		$path = explode('.', $stringPath);
+		$leaf = array_pop($path);
+
+		foreach ($path as $key) {
+			$data = $data[$key];
+		}
+
+		$data[$leaf] = $value;
+	}
+
+	public static function find ($stringPath, $data) {
 		$value = $data;
-		$path = explode('.', $key);
+		$path = explode('.', $stringPath);
 
 		foreach ($path as $key) {
 			if (isset($value[$key])) {
