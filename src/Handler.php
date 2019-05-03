@@ -24,7 +24,7 @@ class Handler {
 		if ($input) {
 			return yaml::decode($input);
 		} else {
-			return $input;
+			return false;
 		}
 	}
 
@@ -50,7 +50,11 @@ class Handler {
 		$leaf = array_pop($path);
 
 		foreach ($path as $key) {
-			$data = $data[$key];
+			if (!empty($data[$key])) {
+				$data = $data[$key];
+			} else {
+				return false;
+			}
 		}
 
 		$data[$leaf] = $value;
