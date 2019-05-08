@@ -51,7 +51,7 @@ class Handler {
 
 		foreach ($path as $key) {
 			if (!empty($data[$key])) {
-				$data = $data[$key];
+				$data = &$data[$key];
 			} else {
 				return false;
 			}
