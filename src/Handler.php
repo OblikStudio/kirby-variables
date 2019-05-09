@@ -45,7 +45,7 @@ class Handler {
 		return self::write($lang, $data);
 	}
 
-	public static function replaceKey ($stringPath, $value, &$data) {
+	public static function replaceKey ($stringPath, $value, &$data, $createKeys = false) {
 		$path = explode('.', $stringPath);
 		$leaf = array_pop($path);
 
@@ -53,7 +53,12 @@ class Handler {
 			if (!empty($data[$key])) {
 				$data = &$data[$key];
 			} else {
-				return false;
+				if ($createKeys) {
+					$data[$key] = [];
+					$data = &$data[$key];
+				} else {
+					return false;
+				}
 			}
 		}
 
