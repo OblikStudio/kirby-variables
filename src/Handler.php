@@ -1,14 +1,32 @@
 <?php
-namespace Easyvars;
 
-use F;
-use yaml;
+namespace Oblik\Variables;
 
-class Handler {
-	public static function path ($lang) {
+use Kirby\Toolkit\F;
+use Kirby\Data\Yaml;
+
+class Handler
+{
+	public static function load($lang)
+	{
+		$content = self::read($lang);
+
+		if (!empty($content)) {
+			$content = self::flatten($content);
+		}
+
+		if (!is_array($content)) {
+			$content = [];
+		}
+
+		return $content;
+	}
+
+	public static function path($lang)
+	{
 		$dir = kirby()->root('languages');
-		$folder = option('oblik.easyvars.folder');
-		$extension = option('oblik.easyvars.extension');
+		$folder = option('oblik.variables.folder');
+		$extension = option('oblik.variables.extension');
 
 		if (!empty($folder)) {
 			$dir .= DS . $folder;
@@ -17,25 +35,28 @@ class Handler {
 		return $dir . DS . $lang . '.' . $extension;
 	}
 
-	public static function read ($lang) {
+	public static function read($lang)
+	{
 		$filepath = self::path($lang);
 		$input = F::read($filepath);
 
 		if ($input) {
-			return yaml::decode($input);
+			return Yaml::decode($input);
 		} else {
 			return false;
 		}
 	}
 
-	public static function write ($lang, $data) {
+	public static function write($lang, $data)
+	{
 		$filepath = self::path($lang);
-		$content = yaml::encode($data);
+		$content = Yaml::encode($data);
 
 		return F::write($filepath, $content);
 	}
 
-	public static function modify ($lang, $data) {
+	public static function modify($lang, $data)
+	{
 		$currentData = self::read($lang);
 
 		if ($currentData) {
@@ -45,7 +66,8 @@ class Handler {
 		return self::write($lang, $data);
 	}
 
-	public static function replaceKey ($stringPath, $value, &$data, $createKeys = false) {
+	public static function replaceKey($stringPath, $value, &$data, $createKeys = false)
+	{
 		$path = explode('.', $stringPath);
 		$leaf = array_pop($path);
 
@@ -65,7 +87,8 @@ class Handler {
 		$data[$leaf] = $value;
 	}
 
-	public static function find ($stringPath, $data) {
+	public static function find($stringPath, $data)
+	{
 		$value = $data;
 		$path = explode('.', $stringPath);
 
@@ -80,7 +103,8 @@ class Handler {
 		return $value;
 	}
 
-	public static function inflate ($array, $delimiter = '.') {
+	public static function inflate($array, $delimiter = '.')
+	{
 		$result = [];
 
 		foreach ($array as $key => $value) {
@@ -107,7 +131,8 @@ class Handler {
 		return $result;
 	}
 
-	public static function flatten ($array, $prefix = '', &$result = []) {
+	public static function flatten($array, $prefix = '', &$result = [])
+	{
 		foreach ($array as $key => $value) {
 			if (is_array($value)) {
 				self::flatten($value, $prefix . $key . '.', $result);

@@ -1,9 +1,15 @@
 <?php
 
-include_once 'src/Handler.php';
-use Easyvars\Handler;
+namespace Oblik\Variables;
 
-function tvar ($key, $flatten = false) {
+use Kirby;
+
+load([
+	'Oblik\\Variables\\Handler' => 'src/Handler.php'
+], __DIR__);
+
+function tvar($key, $flatten = false)
+{
 	$data = Handler::read(kirby()->language()->code());
 	$data = Handler::find($key, $data);
 
@@ -14,10 +20,9 @@ function tvar ($key, $flatten = false) {
 	return $data;
 }
 
-Kirby::plugin('oblik/easyvars', [
-  'options' => [
-    'loader' => __DIR__ . DS . 'loader.php',
-    'folder' => 'variables',
-    'extension' => 'yml'
-  ]
+Kirby::plugin('oblik/variables', [
+	'options' => [
+		'folder' => '',
+		'extension' => 'yml'
+	]
 ]);
