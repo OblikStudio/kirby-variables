@@ -5,7 +5,8 @@ namespace Oblik\Variables;
 use Kirby;
 
 load([
-	'Oblik\\Variables\\Handler' => 'src/Handler.php'
+	'Oblik\\Variables\\Handler' => 'src/Handler.php',
+	'Oblik\\Variables\\Util' => 'src/Util.php'
 ], __DIR__);
 
 function tvar($key, $flatten = false)
@@ -21,8 +22,5 @@ function tvar($key, $flatten = false)
 }
 
 Kirby::plugin('oblik/variables', [
-	'options' => [
-		'folder' => '',
-		'extension' => 'yml'
-	]
+
 ]);

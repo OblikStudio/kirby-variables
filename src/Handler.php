@@ -7,63 +7,38 @@ use Kirby\Data\Yaml;
 
 class Handler
 {
+    const EXT = '.yml';
+
+    public $file;
+    public $data;
+
 	public static function load($lang)
 	{
-		$content = self::read($lang);
+        return (new static($lang))->read()->flatten()->data;
+    }
+    
+    public function __construct(string $lang)
+    {
+        $this->file = kirby()->root('languages') . "/$lang" . self::EXT;
+    }
 
-		if (!empty($content)) {
-			$content = self::flatten($content);
-		}
-
-		if (!is_array($content)) {
-			$content = [];
-		}
-
-		return $content;
-	}
-
-	public static function path($lang)
+    /**
+     * Loads all variables of a language.
+     */
+	public function read()
 	{
-		$dir = kirby()->root('languages');
-		$folder = option('oblik.variables.folder');
-		$extension = option('oblik.variables.extension');
-
-		if (!empty($folder)) {
-			$dir .= DS . $folder;
-		}
-
-		return $dir . DS . $lang . '.' . $extension;
-	}
-
-	public static function read($lang)
-	{
-		$filepath = self::path($lang);
-		$input = F::read($filepath);
-
-		if ($input) {
-			return Yaml::decode($input);
+		if ($contents = F::read($this->file)) {
+            $this->data = Yaml::decode($contents);
 		} else {
-			return false;
-		}
+			$this->data = null;
+        }
+        
+        return $this;
 	}
 
-	public static function write($lang, $data)
+	public static function write()
 	{
-		$filepath = self::path($lang);
-		$content = Yaml::encode($data);
-
-		return F::write($filepath, $content);
-	}
-
-	public static function modify($lang, $data)
-	{
-		$currentData = self::read($lang);
-
-		if ($currentData) {
-			$data = array_replace_recursive($currentData, $data);
-		}
-
-		return self::write($lang, $data);
+        return F::write($this->file, Yaml::encode($this->data));
 	}
 
 	public static function replaceKey($stringPath, $value, &$data, $createKeys = false)
@@ -131,16 +106,12 @@ class Handler
 		return $result;
 	}
 
-	public static function flatten($array, $prefix = '', &$result = [])
+	public function flatten()
 	{
-		foreach ($array as $key => $value) {
-			if (is_array($value)) {
-				self::flatten($value, $prefix . $key . '.', $result);
-			} else {
-				$result[$prefix . $key] = $value;
-			}
+		if (is_array($this->data)) {
+			$this->data = Util::flatten($this->data);
 		}
-
-		return $result;
+		
+		return $this;
 	}
 }
