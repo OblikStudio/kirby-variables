@@ -14,5 +14,8 @@
   },
   "extra": {
     "installer-name": "variables"
+  },
+  "require-dev": {
+    "oblik/kirby-tester": "^1.1"
   }
 }
