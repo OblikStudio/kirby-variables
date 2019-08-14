@@ -8,6 +8,11 @@ return [
         'en_US'
     ],
     'name' => 'English',
-    'translations' => Oblik\Variables\Handler::load('en'),
+    'translations' => [
+        'my.name' => 'foo',
+        'test' => [
+            'nest' => 'from file'
+        ]
+    ],
     'url' => NULL
 ];

@@ -8,6 +8,6 @@ return [
         'bg_BG'
     ],
     'name' => 'Bulgarian',
-    'translations' => Oblik\Variables\Handler::load('bg'),
+    'translations' => [],
     'url' => NULL
 ];

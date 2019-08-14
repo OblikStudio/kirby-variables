@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be6ba3003628aaa6be7aacc8ba4e70aa",
+    "content-hash": "a26194f785b877c08df7d5e5a9c13a44",
     "packages": [
         {
             "name": "getkirby/composer-installer",
@@ -43,6 +43,45 @@
             "description": "Kirby's custom Composer installer for the Kirby CMS and for Kirby plugins",
             "homepage": "https://getkirby.com",
             "time": "2019-02-11T20:27:36+00:00"
+        },
+        {
+            "name": "oblik/pluralization",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OblikStudio/php-pluralization.git",
+                "reference": "912702eb53a50c7558b6ac5daa7f842129417545"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OblikStudio/php-pluralization/zipball/912702eb53a50c7558b6ac5daa7f842129417545",
+                "reference": "912702eb53a50c7558b6ac5daa7f842129417545",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "index.php"
+                ],
+                "psr-4": {
+                    "Oblik\\Pluralization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hristiyan Dodov",
+                    "email": "h.dodov@gmail.com"
+                }
+            ],
+            "description": "Pluralization according to Unicode",
+            "time": "2019-08-14T10:51:54+00:00"
         }
     ],
     "packages-dev": [

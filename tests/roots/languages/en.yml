@@ -1,4 +1,7 @@
-foo: bar
+my:
+  name: foo
 test:
-  nested:
-    label: label text
+  nest: from file
+  plural=c:
+    one: '%d apple'
+    other: '%f apples'
