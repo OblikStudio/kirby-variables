@@ -38,8 +38,8 @@ class Handler
         return Util::find($path, $this->data);
     }
 
-    public function replace($path, $value) {
-        Util::replace($path, $value, $this->data, true);
+    public function replace($path, $value, $force = true) {
+        Util::replace($path, $value, $this->data, $force);
         return $this;
     }
 }

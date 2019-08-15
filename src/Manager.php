@@ -8,7 +8,7 @@ class Manager
 {
     private static $handlers = [];
 
-    public static function createHandler($lang)
+    private static function createHandler($lang)
     {
         return self::$handlers[$lang] = new Handler($lang);
     }
@@ -88,5 +88,10 @@ class Manager
         }
 
         return null;
+    }
+
+    public static function getHandler($lang)
+    {
+        return self::$handlers[$lang] ?? null;
     }
 }

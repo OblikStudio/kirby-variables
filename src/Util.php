@@ -71,7 +71,7 @@ class Util
         return $value;
     }
 
-    public static function replace($path, $value, &$data, $create = false)
+    public static function replace($path, $value, &$data, $force = false)
     {
         $path = self::path($path);
         $leaf = array_pop($path);
@@ -80,7 +80,7 @@ class Util
             if (isset($data[$key]) && is_array($data[$key])) {
                 $data = &$data[$key];
             } else {
-                if ($create) {
+                if ($force) {
                     $data[$key] = [];
                     $data = &$data[$key];
                 } else {
