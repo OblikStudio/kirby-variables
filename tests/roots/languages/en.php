@@ -9,9 +9,8 @@ return [
     ],
     'name' => 'English',
     'translations' => [
-        'my.name' => 'foo',
-        'test' => [
-            'nest' => 'from file'
+        'merged' => [
+            'php' => 'yes'
         ]
     ],
     'url' => NULL

@@ -1,6 +1,5 @@
 merged:
   yaml: 'yes'
-  php: 'yes'
 plurals:
   apples=c:
     one: '{{ count }} apple'

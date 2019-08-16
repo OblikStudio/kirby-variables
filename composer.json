@@ -9,14 +9,18 @@
       "email": "h.dodov@gmail.com"
     }
   ],
+  "scripts": {
+    "test": "phpunit"
+  },
   "require": {
     "getkirby/composer-installer": "^1.1",
-    "oblik/pluralization": "^1.1",
-    "oblik/kirby-tester": "^1.2"
+    "oblik/pluralization": "^1.1"
   },
   "extra": {
     "installer-name": "variables"
   },
   "require-dev": {
+    "oblik/kirby-tester": "^1.2",
+    "phpunit/phpunit": "^8.3"
   }
 }

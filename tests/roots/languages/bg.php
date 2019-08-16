@@ -8,6 +8,11 @@ return [
         'bg_BG'
     ],
     'name' => 'Bulgarian',
-    'translations' => [],
+    'translations' => [
+        'deflated.value' => 'initial',
+        'inflated' => [
+            'value' => 'initial'
+        ]
+    ],
     'url' => NULL
 ];
