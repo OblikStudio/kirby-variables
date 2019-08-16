@@ -2,6 +2,7 @@
 
 namespace Oblik\Variables;
 
+use Kirby\Toolkit\Str;
 use const Oblik\Pluralization\LANGUAGES;
 
 class Manager
@@ -39,7 +40,7 @@ class Manager
         return $translations;
     }
 
-    public static function getPlural($path, array $args, $lang = null)
+    public static function getPlural($path, array $data, $lang = null)
     {
         if (!is_string($lang)) {
             $lang = kirby()->language()->code();
@@ -61,26 +62,28 @@ class Manager
                 switch ($type) {
                     case 'c':
                         $method = 'getCardinal';
+                        $args = [$data['count']];
                         break;
                     case 'o':
                         $method = 'getOrdinal';
+                        $args = [$data['position']];
                         break;
                     case 'r':
                         $method = 'getRange';
+                        $args = [$data['start'], $data['end']];
                         break;
                 }
 
                 if ($method) {
-                    $data = $handler->find($path);
+                    $translations = $handler->find($path);
 
-                    if (is_array($data)) {
+                    if (is_array($translations)) {
                         $form = call_user_func_array("$pluralizer::$method", $args);
                         $name = $pluralizer::formName($form);
-                        $translation = $data[$name] ?? null;
+                        $translation = $translations[$name] ?? null;
 
                         if ($translation) {
-                            array_unshift($args, $translation);
-                            return call_user_func_array('sprintf', $args);
+                            return Str::template($translation, $data);
                         }
                     }
                 }

@@ -2,9 +2,7 @@
 
 use Oblik\Variables\Manager;
 
-function p($key)
+function p($key, array $data)
 {
-    $args = func_get_args();
-    array_shift($args);
-    return Manager::getPlural($key, $args);
+    return Manager::getPlural($key, $data);
 }
