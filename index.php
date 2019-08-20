@@ -5,7 +5,6 @@ namespace Oblik\Variables;
 use Kirby;
 
 const DELIMITER_KEY = '.';
-const DELIMITER_PLURAL = '=';
 
 load([
     'Oblik\\Variables\\Handler' => 'src/Handler.php',
@@ -16,5 +15,3 @@ load([
 Kirby::plugin('oblik/variables', [
     'translations' => Manager::loadTranslations()
 ]);
-
-require_once 'global.php';

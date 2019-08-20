@@ -40,59 +40,6 @@ class Manager
         return $translations;
     }
 
-    public static function getPlural($path, array $data, $lang = null)
-    {
-        if (!is_string($lang)) {
-            $lang = kirby()->language()->code();
-        }
-
-        $handler = self::$handlers[$lang] ?? null;
-        $pluralizer = LANGUAGES[$lang] ?? null;
-
-        if ($handler && $pluralizer) {
-            if (is_string($path)) {
-                $path = explode(DELIMITER_KEY, $path);
-            }
-
-            if (is_array($path)) {
-                $plural = explode(DELIMITER_PLURAL, end($path));
-                $type = $plural[1] ?? null;
-                $method = null;
-
-                switch ($type) {
-                    case 'c':
-                        $method = 'getCardinal';
-                        $args = [$data['count']];
-                        break;
-                    case 'o':
-                        $method = 'getOrdinal';
-                        $args = [$data['position']];
-                        break;
-                    case 'r':
-                        $method = 'getRange';
-                        $args = [$data['start'], $data['end']];
-                        break;
-                }
-
-                if ($method) {
-                    $translations = $handler->find($path);
-
-                    if (is_array($translations)) {
-                        $form = call_user_func_array("$pluralizer::$method", $args);
-                        $name = $pluralizer::formName($form);
-                        $translation = $translations[$name] ?? null;
-
-                        if ($translation) {
-                            return Str::template($translation, $data);
-                        }
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-
     public static function getHandler($lang)
     {
         return self::$handlers[$lang] ?? null;

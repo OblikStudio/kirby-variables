@@ -1,12 +1,3 @@
 merged:
   yaml: 'yes'
   php: 'yes'
-plurals:
-  apples=c:
-    one: '{{ count }} apple'
-    other: '{{ count }} apples'
-  place=o:
-    one: '{{ position }}st'
-    few: '{{ position }}rd'
-  cookies=r:
-    other: '{{ start }}-{{ end }} cookies'

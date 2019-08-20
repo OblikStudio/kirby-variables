@@ -39,34 +39,4 @@ final class ManagerTest extends TestCase
         $this->assertEquals('yes', I18n::translate('merged.yaml'));
         $this->assertEquals('yes', I18n::translate('merged.php'));
     }
-
-    public function testPlurals()
-    {
-        $oneApple = Manager::getPlural('plurals.apples=c', [
-            'count' => 1
-        ]);
-
-        $moreApples = Manager::getPlural('plurals.apples=c', [
-            'count' => 2.4
-        ]);
-
-        $first = Manager::getPlural('plurals.place=o', [
-            'position' => 1
-        ]);
-
-        $third = Manager::getPlural('plurals.place=o', [
-            'position' => 3
-        ]);
-
-        $cookies = Manager::getPlural('plurals.cookies=r', [
-            'start' => 3,
-            'end' => 5
-        ]);
-
-        $this->assertEquals('1 apple', $oneApple);
-        $this->assertEquals('2.4 apples', $moreApples);
-        $this->assertEquals('1st', $first);
-        $this->assertEquals('3rd', $third);
-        $this->assertEquals('3-5 cookies', $cookies);
-    }
 }
