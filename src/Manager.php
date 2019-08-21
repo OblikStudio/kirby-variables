@@ -2,9 +2,6 @@
 
 namespace Oblik\Variables;
 
-use Kirby\Toolkit\Str;
-use const Oblik\Pluralization\LANGUAGES;
-
 class Manager
 {
     private static $handlers = [];
@@ -14,7 +11,13 @@ class Manager
         return self::$handlers[$lang] = new Handler($lang);
     }
 
-    public static function loadTranslations() {
+    public static function getHandler($lang)
+    {
+        return self::$handlers[$lang] ?? null;
+    }
+
+    public static function loadTranslations()
+    {
         $translations = [];
 
         foreach (kirby()->languages() as $language) {
@@ -38,10 +41,5 @@ class Manager
         }
 
         return $translations;
-    }
-
-    public static function getHandler($lang)
-    {
-        return self::$handlers[$lang] ?? null;
     }
 }
