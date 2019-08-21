@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd134a12bd40a5e3f288ba88406d5b8c",
+    "content-hash": "92d976aeb20c31e864b1b4cb116f5c06",
     "packages": [
         {
             "name": "getkirby/composer-installer",
@@ -43,82 +43,6 @@
             "description": "Kirby's custom Composer installer for the Kirby CMS and for Kirby plugins",
             "homepage": "https://getkirby.com",
             "time": "2019-02-11T20:27:36+00:00"
-        },
-        {
-            "name": "oblik/kirby-tester",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OblikStudio/kirby-tester.git",
-                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OblikStudio/kirby-tester/zipball/cc996778583ad5a6bd38ae9756407402712ec1ff",
-                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Oblik\\KirbyTester\\": "src/"
-                },
-                "files": [
-                    "index.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Hristiyan Dodov",
-                    "email": "h.dodov@gmail.com",
-                    "homepage": "https://dodov.me/"
-                }
-            ],
-            "description": "Utility for loading Kirby and switching roots while testing.",
-            "time": "2019-08-15T07:03:54+00:00"
-        },
-        {
-            "name": "oblik/pluralization",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OblikStudio/php-pluralization.git",
-                "reference": "912702eb53a50c7558b6ac5daa7f842129417545"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OblikStudio/php-pluralization/zipball/912702eb53a50c7558b6ac5daa7f842129417545",
-                "reference": "912702eb53a50c7558b6ac5daa7f842129417545",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "index.php"
-                ],
-                "psr-4": {
-                    "Oblik\\Pluralization\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Hristiyan Dodov",
-                    "email": "h.dodov@gmail.com"
-                }
-            ],
-            "description": "Pluralization according to Unicode",
-            "time": "2019-08-14T10:51:54+00:00"
         }
     ],
     "packages-dev": [
@@ -225,6 +149,43 @@
                 "object graph"
             ],
             "time": "2019-08-09T12:45:53+00:00"
+        },
+        {
+            "name": "oblik/kirby-tester",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OblikStudio/kirby-tester.git",
+                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OblikStudio/kirby-tester/zipball/cc996778583ad5a6bd38ae9756407402712ec1ff",
+                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Oblik\\KirbyTester\\": "src/"
+                },
+                "files": [
+                    "index.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hristiyan Dodov",
+                    "email": "h.dodov@gmail.com",
+                    "homepage": "https://dodov.me/"
+                }
+            ],
+            "description": "Utility for loading Kirby and switching roots while testing.",
+            "time": "2019-08-15T07:03:54+00:00"
         },
         {
             "name": "phar-io/manifest",
