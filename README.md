@@ -1,53 +1,19 @@
-# easyvars
+# kirby-variables
 
-This plugin allows you to specify language variables in Kirby 3 in an easier manner with YAML files and nested keys.
+Allows you to easily manage language variables by putting them in separate YAML files and nesting them.
 
 # Installation
 
+With [Composer](https://packagist.org/packages/oblik/kirby-variables):
+
 ```
-composer require oblik/kirby-easyvars
+composer require oblik/kirby-variables
 ```
-or check out the [other plugin installation methods](https://getkirby.com/docs/guide/plugins/plugin-setup-basic#the-three-plugin-installation-methods).
 
 # Usage
 
-Let's say you have `languages/en.php`:
-```php
-return array (
-  'code' => 'en',
-  'default' => true,
-  'direction' => 'ltr',
-  'locale' => 'en_US',
-  'name' => 'English',
-  'translations' => [
-    'hello' => 'Hello',
-    'button.accept' => 'Accept',
-    'button.decline' => 'Decline',
-  ]
-);
-```
+After you've installed the plugin and you open your site, the plugin will run and it will automatically get the variables from your PHP files and put them in YAML files in the same directory. After that, you can remove the variables from your PHP files, as they're no longer needed. Then, use the YAML files to manage your variables.
 
-Create a new file `languages/variables/en.yml` and put the variables there:
-```yaml
-hello: Hello
-button:
-  accept: Accept
-  decline: Decline
-```
-
-Then change your `languages/en.php` file to the following:
-```php
-return array (
-  'code' => 'en',
-  'default' => true,
-  'direction' => 'ltr',
-  'locale' => 'en_US',
-  'name' => 'English',
-  'translations' => include option('oblik.easyvars.loader')
-);
-```
-
-### That's it!
 Your variables should continue to work as they did so far. In the YAML file, nested arrays are flattened and their keys are concatenated with a period (`.`). For example, the following:
 
 ```yaml
@@ -55,23 +21,16 @@ foo:
   bar: test
   baz:
     qux: test2
-    lix: test3
 ```
 
-is converted to:
+...is converted to:
 
 ```
 Array
 (
     [foo.bar] => test
     [foo.baz.qux] => test2
-    [foo.baz.lix] => test3
 )
 ```
 
-and you can use the variables in your templates with `t('foo.baz.qux')`.
-
-# [Kirby Options](https://getkirby.com/docs/guide/plugins/plugin-basics#plugin-options)
-
-- `oblik.easyvars.loader` file path to the `loader.php` file in the plugin directory that imports the variables. You shouldn't change that.
-- `oblik.easyvars.folder` the folder in `languages` that should contain the YAML files. You could change that to whatever you wish, or set it to `null` if you want to put your YAML files where the language PHP files are. Default: `variables`.
+...and you can use the variables in your templates with `t('foo.baz.qux')`.
