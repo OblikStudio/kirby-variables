@@ -76,6 +76,10 @@ class Util
         $path = self::path($path);
         $leaf = array_pop($path);
 
+        if (!is_array($data)) {
+            $data = [];
+        }
+
         foreach ($path as $key) {
             if (isset($data[$key]) && is_array($data[$key])) {
                 $data = &$data[$key];

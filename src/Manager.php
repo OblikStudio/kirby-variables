@@ -11,6 +11,9 @@ class Manager
         return self::$handlers[$lang] = new Handler($lang);
     }
 
+    /**
+     * @return Handler|null
+     */
     public static function getHandler($lang)
     {
         return self::$handlers[$lang] ?? null;
