@@ -35,7 +35,11 @@ class Handler
 
     public function write()
     {
-        return F::write($this->file, Yaml::encode($this->data));
+        if (!empty($this->data)) {
+            return F::write($this->file, Yaml::encode($this->data));
+        } else {
+            return F::remove($this->file);
+        }
     }
 
     public function find($path)
