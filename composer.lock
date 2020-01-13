@@ -152,16 +152,16 @@
         },
         {
             "name": "oblik/kirby-tester",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OblikStudio/kirby-tester.git",
-                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff"
+                "reference": "3b5918b61751b9ed0e1b2d02e5ef4bb8a931e5bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OblikStudio/kirby-tester/zipball/cc996778583ad5a6bd38ae9756407402712ec1ff",
-                "reference": "cc996778583ad5a6bd38ae9756407402712ec1ff",
+                "url": "https://api.github.com/repos/OblikStudio/kirby-tester/zipball/3b5918b61751b9ed0e1b2d02e5ef4bb8a931e5bf",
+                "reference": "3b5918b61751b9ed0e1b2d02e5ef4bb8a931e5bf",
                 "shasum": ""
             },
             "type": "library",
@@ -185,7 +185,7 @@
                 }
             ],
             "description": "Utility for loading Kirby and switching roots while testing.",
-            "time": "2019-08-15T07:03:54+00:00"
+            "time": "2019-09-10T09:56:50+00:00"
         },
         {
             "name": "phar-io/manifest",

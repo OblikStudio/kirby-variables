@@ -7,14 +7,13 @@ use Kirby\Data\Yaml;
 
 class Handler
 {
-    const EXTENSION = '.yml';
-
     public $file;
     public $data;
 
     public function __construct(string $lang)
     {
-        $this->file = kirby()->root('languages') . "/$lang" . self::EXTENSION;
+        $folder = kirby()->option('oblik.variables.folder');
+        $this->file = "$folder/$lang.yml";
     }
 
     public function read()
