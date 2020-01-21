@@ -12,7 +12,15 @@ class Handler
 
     public function __construct(string $lang)
     {
-        $folder = kirby()->option('oblik.variables.folder');
+        $kirby = kirby();
+        $folderGetter = $kirby->option('oblik.variables.folder');
+
+        if ($folderGetter) {
+            $folder = $folderGetter($kirby);
+        } else {
+            $folder = $kirby->root('languages');
+        }
+        
         $this->file = "$folder/$lang.yml";
     }
 

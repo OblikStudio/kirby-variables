@@ -13,12 +13,5 @@ load([
 ], __DIR__);
 
 Kirby::plugin('oblik/variables', [
-    'options' => [
-        'folder' => kirby()->root('languages')
-    ],
-    'hooks' => [
-        'system.loadPlugins:after' => function () {
-            kirby()->extendTranslations(Manager::loadTranslations());
-        }
-    ]
+    'translations' => Manager::loadTranslations()
 ]);
