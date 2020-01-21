@@ -34,3 +34,15 @@ Array
 ```
 
 ...and you can use the variables in your templates with `t('foo.baz.qux')`.
+
+## Config
+
+### `folder`
+
+Sets where the YAML files are stored:
+
+```php
+'oblik.variables.folder' => function ($kirby) {
+    return $kirby->root('content') . '/_variables';
+}
+```
