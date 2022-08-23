@@ -2,6 +2,18 @@
 
 Allows you to easily manage language variables by putting them in separate YAML files and nesting them.
 
+## ⚠ Deprecated!
+
+By putting variables in separate files, you aren't really gaining much. You'd be much better off having a "variables" or "texts" tab in your `site.yml` and just putting simple `text` fields in there, optionally with help text, placeholder, etc.
+
+If you really need to load variables from a file, you could do it like this:
+
+```php
+'translations' => Yaml::decode(F::read(kirby()->root('languages') . '/vars/en.yml'))
+```
+
+Or, alternatively, you could use [bnomei/autoloader-for-kirby](https://github.com/bnomei/autoloader-for-kirby).
+
 # Installation
 
 With [Composer](https://packagist.org/packages/oblik/kirby-variables):
